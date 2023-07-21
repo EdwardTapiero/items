@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "2550f788-d0d4-44ae-86de-3ca584a0b01f",
+		"name": "ML",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10404051",
+		"_collection_link": "https://gold-shuttle-500675.postman.co/workspace/My-Workspace~71a898f2-0adf-4681-8f7e-08fd6f3c839c/collection/16885517-2550f788-d0d4-44ae-86de-3ca584a0b01f?action=share&creator=10404051&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "4bv3n1dopps41a65aqenlndi556bi5rll1fnintl06skiuf7u2v",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "3j4g0ln5u7k9ouqtidk12q7c3n",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"prueba12\",\n    \"description\": \"description\",\n    \"price\": 1000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"items"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "4bv3n1dopps41a65aqenlndi556bi5rll1fnintl06skiuf7u2v",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "3j4g0ln5u7k9ouqtidk12q7c3n",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/items?page=1&size=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"items"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "4bv3n1dopps41a65aqenlndi556bi5rll1fnintl06skiuf7u2v",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "3j4g0ln5u7k9ouqtidk12q7c3n",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/items/64b89b8f41999e229555e6a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"items",
+						"64b89b8f41999e229555e6a"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Copy",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "4bv3n1dopps41a65aqenlndi556bi5rll1fnintl06skiuf7u2v",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "3j4g0ln5u7k9ouqtidk12q7c3n",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"64b893c9e76e6830d1301c87\",\n    \"name\": \"prueba13\",\n    \"description\": \"description5\",\n    \"price\": 1000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"items"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id Copy",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "4bv3n1dopps41a65aqenlndi556bi5rll1fnintl06skiuf7u2v",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "3j4g0ln5u7k9ouqtidk12q7c3n",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://meli-prueba-tecnica.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/items/64b89387e76e6830d1301c80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"items",
+						"64b89387e76e6830d1301c80"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
