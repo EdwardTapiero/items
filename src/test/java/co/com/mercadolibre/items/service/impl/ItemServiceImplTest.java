@@ -62,7 +62,7 @@ class ItemServiceImplTest {
         Item data = new Item();
         when(itemRepository.retrieveAllItemsPaged(any())).thenReturn(Flux.just(data));
         when(modelMapper.map(any(), any())).thenReturn(new ItemDTO());
-        Flux<Object> result = itemServiceImpl.getAllItems(1, 1);
+        Flux<ItemDTO> result = itemServiceImpl.getAllItems(1, 1);
         assertNotNull(result);
     }
 
@@ -73,7 +73,7 @@ class ItemServiceImplTest {
         when(reactiveValueOperations.get(anyString())).thenReturn(Mono.just(new Object()));
         when(itemRepository.findById(anyString())).thenReturn(Mono.just(data));
         when(modelMapper.map(any(), any())).thenReturn(new ItemDTO());
-        Mono<Object> result = itemServiceImpl.getItemById("id");
+        Mono<ItemDTO> result = itemServiceImpl.getItemById("id");
         assertNotNull(result);
     }
 

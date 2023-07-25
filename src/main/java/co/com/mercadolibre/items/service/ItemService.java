@@ -7,9 +7,9 @@ import reactor.core.publisher.Mono;
 public interface ItemService {
     Mono<ItemDTO> createItem(ItemDTO itemDTO);
 
-    Flux<Object> getAllItems(int page, int size);
+    Flux<ItemDTO> getAllItems(int page, int size);
 
-    Mono<Object> getItemById(String id);
+    Mono<ItemDTO> getItemById(String id);
 
     Mono<ItemDTO> updateItem(ItemDTO item);
 

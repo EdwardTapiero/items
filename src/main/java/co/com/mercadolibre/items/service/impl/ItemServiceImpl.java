@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.function.Function;
+
 @Service
 class ItemServiceImpl implements ItemService {
 
@@ -40,20 +42,24 @@ class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Flux<Object> getAllItems(int page, int size) {
+    public Flux<ItemDTO> getAllItems(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id"));
         return itemRepository.retrieveAllItemsPaged(pageRequest)
                 .map(item -> modelMapper.map(item, ItemDTO.class));
     }
 
     @Override
-    public Mono<Object> getItemById(String id) {
+    public Mono<ItemDTO> getItemById(String id) {
         return redisTemplate.opsForValue().get(id)
                 .switchIfEmpty(itemRepository.findById(id)
                         .map(updatedItem -> modelMapper.map(updatedItem, ItemDTO.class))
-                        .flatMap(item -> redisTemplate.opsForValue().set(item.getId(), item)
-                                .thenReturn(item))
+                        .flatMap(getItemDTOMonoFunction())
                         .switchIfEmpty(Mono.error(new ItemException(HttpStatus.BAD_REQUEST, "No information was found for the specified id"))));
+    }
+
+    private Function<ItemDTO, Mono<?>> getItemDTOMonoFunction() {
+        return item -> redisTemplate.opsForValue().set(item.getId(), item)
+                .thenReturn(item);
     }
 
     @Override

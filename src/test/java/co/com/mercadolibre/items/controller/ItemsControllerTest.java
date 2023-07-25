@@ -37,7 +37,7 @@ class ItemsControllerTest {
     void testGetAllItems() {
         when(itemService.getAllItems(anyInt(), anyInt())).thenReturn(null);
 
-        ResponseEntity<Flux<Object>> result = itemsController.getAllItems(0, 0);
+        ResponseEntity<Flux<ItemDTO>> result = itemsController.getAllItems(0, 0);
         assertNotNull(result);
     }
 
@@ -45,7 +45,7 @@ class ItemsControllerTest {
     void testGetItemById() {
         when(itemService.getItemById(anyString())).thenReturn(null);
 
-        ResponseEntity<Mono<Object>> result = itemsController.getItemById("id");
+        ResponseEntity<Mono<ItemDTO>> result = itemsController.getItemById("id");
         assertNotNull(result);
     }
 

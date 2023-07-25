@@ -35,7 +35,7 @@ public class ItemsController {
             summary = "Obtener todos los items",
             description = "Obtener todos los items, se genera por paginación")
     @GetMapping
-    public ResponseEntity<Flux<Object>> getAllItems(@RequestParam(defaultValue = "0") int page,
+    public ResponseEntity<Flux<ItemDTO>> getAllItems(@RequestParam(defaultValue = "0") int page,
                                                     @RequestParam(defaultValue = "10") int size) {
         return ResponseEntity.ok(itemService.getAllItems(page, size));
     }
@@ -44,7 +44,7 @@ public class ItemsController {
             summary = "Obtener item por id",
             description = "Obtener item por id")
     @GetMapping("/{id}")
-    public ResponseEntity<Mono<Object>> getItemById(@PathVariable String id) {
+    public ResponseEntity<Mono<ItemDTO>> getItemById(@PathVariable String id) {
         return ResponseEntity.ok(itemService.getItemById(id));
     }
 
